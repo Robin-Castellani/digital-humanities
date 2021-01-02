@@ -14,6 +14,6 @@ def pdf_test() -> pathlib.Path:
 
 
 def test_read_pdf(pdf_test):
-    text = main.read_file(pdf_test)
+    text = main.read_pdf(pdf_test)
 
     assert text.strip() == 'Test test'

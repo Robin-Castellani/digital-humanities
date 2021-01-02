@@ -29,7 +29,7 @@ def cli():
 
 
 @memoizer.memoize()
-def read_file(filepath: pathlib.Path) -> str:
+def read_pdf(filepath: pathlib.Path) -> str:
     """Read a .pdf file"""
     text = pdfminer.high_level.extract_text(filepath)
     return text
