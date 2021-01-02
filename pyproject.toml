@@ -5,16 +5,18 @@ description = "Let's automate something while dealing with Latin books!"
 authors = ["robin-castellani <robin.castellani@alumni.unitn.it>"]
 license = "CC BY-NC-SA 4.0"
 packages = [
-    {include = "medicus-politicus", from = 'src'}
+    {include = "medicus_politicus", from = 'src'}
 ]
 
 [tool.poetry.scripts]
-medicus-politicus = "medicus-politicus.main:cli"
+medicus-politicus = "medicus_politicus.main:cli"
 
 [tool.poetry.dependencies]
 python = "^3.9"
+"pdfminer.six" = "^20201018"
 
 [tool.poetry.dev-dependencies]
+pytest = "^6.2.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
