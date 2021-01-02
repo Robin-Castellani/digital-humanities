@@ -5,7 +5,7 @@ The idea is to run a CLI command like
 
 .. code-block:: shell
 
-    poetry run medicus-politicus sostituisci \
+    poetry run medicus_politicus sostituisci \
         --file nome_file.epub \
         --file-sostituzioni file_sostituzioni.txt \
         --output-name epub_sostituito.epub
@@ -13,10 +13,26 @@ The idea is to run a CLI command like
 """
 
 
+import pathlib
+
+import pdfminer.high_level
+
+from . import helpers
+
+
+memoizer = helpers.Memoizer(cache_dir='./cache')
+
+
 def cli():
     """Implement the Command Line Interface."""
     pass
 
+
+@memoizer.memoize()
+def read_file(filepath: pathlib.Path) -> str:
+    """Read a .pdf file"""
+    text = pdfminer.high_level.extract_text(filepath)
+    return text
 
 """
 @click.command()
