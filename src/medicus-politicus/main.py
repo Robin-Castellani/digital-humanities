@@ -15,7 +15,6 @@ The idea is to run a CLI command like
 
 def cli():
     """Implement the Command Line Interface."""
-    print('ok!')
     pass
 
 
