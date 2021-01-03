@@ -46,7 +46,7 @@ def test_sostituisci_file_content(
     runner = click.testing.CliRunner()
 
     # run the CLI with command "sostituisci"
-    result = runner.invoke(
+    runner.invoke(
         main.sostituisci,
         [
             f"--file-pdf={pdf_integration_test}",
@@ -70,7 +70,7 @@ def test_sostituisci_file_name(
     runner = click.testing.CliRunner()
 
     # run the CLI with command "sostituisci"
-    result = runner.invoke(
+    runner.invoke(
         main.sostituisci,
         [
             f"--file-pdf={pdf_integration_test}",

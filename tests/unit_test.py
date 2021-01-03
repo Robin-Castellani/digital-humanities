@@ -25,7 +25,8 @@ def test_read_pdf(pdf_test):
 
 
 def test_read_substitutions(substitutions_test):
-    substitutions = medicus_politicus.functions.read_substitutions(substitutions_test)
+    substitutions = medicus_politicus.functions\
+        .read_substitutions(substitutions_test)
     expected_substitutions = [
         ("old_string", "new_string"),
         ("very_old_string", "super_new_string")
@@ -45,6 +46,7 @@ def test_perform_substitutions():
 
     expected_text = 'Wrong string, please, can you correct me?'
 
-    substituted_text = medicus_politicus.functions.perform_substitutions(original_text, substitutions)
+    substituted_text = medicus_politicus.functions\
+        .perform_substitutions(original_text, substitutions)
 
     assert substituted_text == expected_text

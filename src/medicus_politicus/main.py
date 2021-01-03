@@ -17,13 +17,7 @@ import pathlib
 
 import click
 import click_pathlib
-from medicus_politicus.functions import read_pdf, read_substitutions, \
-    perform_substitutions
-
-from . import helpers
-
-
-memoizer = helpers.Memoizer(cache_dir='./cache')
+from . import functions
 
 
 @click.group(
@@ -78,11 +72,11 @@ def sostituisci(
     :return: None.
     """
     # read the text in the .pdf file
-    pdf = read_pdf(file_pdf)
+    pdf = functions.read_pdf(file_pdf)
     # read the .txt substitutions file
-    substitutions = read_substitutions(file_sostituzioni)
+    substitutions = functions.read_substitutions(file_sostituzioni)
     # perform the substitutions
-    f_substituted = perform_substitutions(pdf, substitutions)
+    f_substituted = functions.perform_substitutions(pdf, substitutions)
     # save the file
     output_filepath = file_pdf.with_name(nome_output + '.txt')
     output_filepath.write_text(data=f_substituted, encoding='utf-8')

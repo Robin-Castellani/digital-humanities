@@ -4,7 +4,9 @@ import pathlib
 from typing import List, Tuple
 
 import pdfminer.high_level
-from medicus_politicus.main import memoizer
+from . import helpers
+
+memoizer = helpers.Memoizer(cache_dir='./cache')
 
 
 @memoizer.memoize()
