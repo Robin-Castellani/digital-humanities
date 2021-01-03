@@ -2,9 +2,8 @@
 
 import pathlib
 
+import medicus_politicus.functions
 import pytest
-
-from medicus_politicus import main
 
 
 @pytest.fixture
@@ -20,13 +19,13 @@ def substitutions_test() -> pathlib.Path:
 
 
 def test_read_pdf(pdf_test):
-    text = main.read_pdf(pdf_test)
+    text = medicus_politicus.functions.read_pdf(pdf_test)
 
     assert text.strip() == 'Test test'
 
 
 def test_read_substitutions(substitutions_test):
-    substitutions = main.read_substitutions(substitutions_test)
+    substitutions = medicus_politicus.functions.read_substitutions(substitutions_test)
     expected_substitutions = [
         ("old_string", "new_string"),
         ("very_old_string", "super_new_string")
@@ -46,6 +45,6 @@ def test_perform_substitutions():
 
     expected_text = 'Wrong string, please, can you correct me?'
 
-    substituted_text = main.perform_substitutions(original_text, substitutions)
+    substituted_text = medicus_politicus.functions.perform_substitutions(original_text, substitutions)
 
     assert substituted_text == expected_text

@@ -1,4 +1,4 @@
-"""Collection of useful functions"""
+"""Useful functions, but not really necessary."""
 
 import functools
 import hashlib
