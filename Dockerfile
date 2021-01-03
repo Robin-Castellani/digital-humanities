@@ -14,7 +14,7 @@ RUN poetry install --no-dev
 
 # this is the command exposed through the image
 # while using it, you just need to interact with the CLI
-ENTRYPOINT ["python", "-m", "medicus-politicus.main"]
+ENTRYPOINT ["python", "-m", "medicus_politicus.main"]
 
 # label to be recognized in the GitHub Container Registry
 LABEL org.opencontainers.image.source https://github.com/robin-castellani/digital-humanities
