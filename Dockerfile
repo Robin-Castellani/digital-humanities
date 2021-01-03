@@ -9,7 +9,7 @@ RUN pip install poetry==1.1.3
 COPY . .
 
 RUN poetry config virtualenvs.create false
-RUN poetry install
+RUN poetry install --no-dev
 
 
 ENTRYPOINT ["python", "-m", "medicus-politicus.main"]
