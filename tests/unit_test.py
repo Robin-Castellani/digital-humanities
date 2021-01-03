@@ -33,3 +33,19 @@ def test_read_substitutions(substitutions_test):
     ]
 
     assert substitutions == expected_substitutions
+
+
+def test_perform_substitutions():
+    original_text = 'W rong str!ng, please,can you c0rr3ct me?'
+    substitutions = [
+        ('W rong', 'Wrong'),
+        ('str!ng', 'string'),
+        ('please,can', 'please, can'),
+        ('c0rr3ct', 'correct')
+    ]
+
+    expected_text = 'Wrong string, please, can you correct me?'
+
+    substituted_text = main.perform_substitutions(original_text, substitutions)
+
+    assert substituted_text == expected_text
