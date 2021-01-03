@@ -66,6 +66,23 @@ def read_substitutions(filepath: pathlib.Path) -> List[Tuple[str, str]]:
     return substitutions
 
 
+def perform_substitutions(
+        text: str, substitutions: List[Tuple[str, str]]
+) -> str:
+    """
+    Given a text and a list of substitutions to perform on that text,
+    return the corrected version of the text.
+
+    :param text: text to be corrected.
+    :param substitutions: list of tuples (old_string, new_string).
+    :return: text with substitutions applied.
+    """
+    for old_string, new_string in substitutions:
+        text = text.replace(old_string, new_string)
+
+    return text
+
+
 """
 @click.command()
 @click.option("--file", help="file originale")
